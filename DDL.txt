@@ -3,40 +3,44 @@ CREATE TABLE Users (
     userID INT PRIMARY KEY,
     email VARCHAR(255),
     password VARCHAR(255)
-    -- Include other user fields here
 );
--- Create table for Locations
-CREATE TABLE Locations (
-    locationID INT PRIMARY KEY,
-    area VARCHAR(255)
-);
--- Create table for Streets which inherits locationID from Locations
-CREATE TABLE Streets (
-    locationID INT,
-    streetName VARCHAR(255),
-    streetID INT,
-    PRIMARY KEY (locationID),
-    FOREIGN KEY (locationID) REFERENCES Locations(locationID)
-);
--- Create table for Institutions which inherits locationID from Locations
-CREATE TABLE Institutions (
-    locationID INT,
-    instName VARCHAR(255),
-    instID INT,
-    PRIMARY KEY (locationID),
-    FOREIGN KEY (locationID) REFERENCES Locations(locationID)
-);
+
 -- Create table for Groups
 CREATE TABLE Groups (
     groupID INT PRIMARY KEY,
-    locationID INT,
     duration INT,
     startTime TIME,
-    endTime TIME,
-    FOREIGN KEY (locationID) REFERENCES Locations(locationID)
+    endTime TIME
 );
--- Create a linking table between Users and Locations to represent saved locations
--- Assuming a countdown is a derived attribute, we include a timestamp to indicate when the location was saved
+
+
+-- Create table for Locations
+CREATE TABLE Locations (
+    locationID INT PRIMARY KEY,
+    area VARCHAR(255),
+    groupID INT,
+    FOREIGN KEY (groupID) REFERENCES Groups(groupID)
+);
+
+-- Create table for Streets which inherits locationID from Locations
+CREATE TABLE Streets (
+    locationID INT PRIMARY KEY,
+    streetName VARCHAR(255),
+    streetID INT,
+    FOREIGN KEY (locationID) REFERENCES Locations(locationID)
+  
+);
+
+-- Create table for Institutions which inherits locationID from Locations
+CREATE TABLE Institutions (
+    locationID INT PRIMARY KEY,
+    instName VARCHAR(255),
+    instID INT,
+    FOREIGN KEY (locationID) REFERENCES Locations(locationID)
+   
+);
+
+
 CREATE TABLE User_Saved_Locations (
     userID INT,
     locationID INT,
