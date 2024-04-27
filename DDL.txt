@@ -9,7 +9,6 @@ CREATE TABLE Users (
 CREATE TABLE Locations (
     locationID INT PRIMARY KEY,
     area VARCHAR(255)
-    -- Include other common fields here
 );
 -- Create table for Streets which inherits locationID from Locations
 CREATE TABLE Streets (
@@ -18,7 +17,6 @@ CREATE TABLE Streets (
     streetID INT,
     PRIMARY KEY (locationID),
     FOREIGN KEY (locationID) REFERENCES Locations(locationID)
-    -- Include other specific fields for Streets here
 );
 -- Create table for Institutions which inherits locationID from Locations
 CREATE TABLE Institutions (
@@ -27,7 +25,6 @@ CREATE TABLE Institutions (
     instID INT,
     PRIMARY KEY (locationID),
     FOREIGN KEY (locationID) REFERENCES Locations(locationID)
-    -- Include other specific fields for Institutions here
 );
 -- Create table for Groups
 CREATE TABLE Groups (
@@ -37,7 +34,6 @@ CREATE TABLE Groups (
     startTime TIME,
     endTime TIME,
     FOREIGN KEY (locationID) REFERENCES Locations(locationID)
-    -- Include other group fields here
 );
 -- Create a linking table between Users and Locations to represent saved locations
 -- Assuming a countdown is a derived attribute, we include a timestamp to indicate when the location was saved
