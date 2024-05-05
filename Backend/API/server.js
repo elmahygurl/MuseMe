@@ -59,12 +59,12 @@ const upload = multer({
 });
 
 // Routers
-const MuseumRouter = require('./routes/museumrouter');
-const AdminRouter = require('./routes/adminrouter');
-const UserRouter = require('./routes/userrouter');
-const EventRouter = require('./routes/eventrouter');
-const MuseumTicketRouter = require('./routes/museumticketrouter');
-const EventTicketRouter = require('./routes/eventticketrouter');
+const MuseumRouter = require('./routers/museumRouter');
+const AdminRouter = require('./routers/adminRouter');
+const UserRouter = require('./routers/userRouter');
+const EventRouter = require('./routers/eventRouter');
+const MuseumTicketRouter = require('./routers/museumticketRouter');
+const EventTicketRouter = require('./routers/eventticketpurchaseRouter');
 
 app.get('/', (req, res) => {
   res.status(200).json({ hi: 'welcome' });
