@@ -1,8 +1,10 @@
 const Museum = require('../models/museum');
 
-exports.getAllMuseums = async (req, res) => {
+exports.loadMoreMuseums = async (req, res) => {
+  const { offset, limit } = req.query;
   try {
-    const museums = await Museum.findAll();
+    const museums = await Museum.findAll(parseInt(offset), parseInt(limit));
+    //museums = museums.slice(parseInt(offset), parseInt(offset) + parseInt(limit));
     res.json(museums);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -69,13 +71,37 @@ exports.deleteMuseum = async (req, res) => {
   }
 };
 
-exports.loadMoreMuseums = async (req, res) => {
-  const { offset, limit } = req.query;
-  try {
-    // Fetch additional museums from the database using offset and limit
-    const museums = await Museum.find({}).skip(parseInt(offset)).limit(parseInt(limit)); // Assuming you're using Mongoose, we are using sql
-    res.json(museums);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+// exports.loadMoreMuseums = async (req, res) => {
+//   const { offset, limit } = req.query;
+//   try {
+//     // Fetch additional museums from the database using offset and limit
+//     const museums = await Museum.findAll().skip(parseInt(offset)).limit(parseInt(limit)); // Assuming you're using Mongoose, we are using sql
+//     res.json(museums);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+
+// exports.loadMoreMuseums = async (req, res) => {
+//   const { offset, limit } = req.query;
+//   try {
+//     // Fetch additional museums from the database using offset and limit
+//     const museums = await Museum.find({}).skip(parseInt(offset)).limit(parseInt(limit)); // Assuming you're using Mongoose, we are using sql
+//     res.json(museums);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+// exports.loadMoreMuseums = async (req, res) => {
+//   try {
+//     // If userId is provided in the request, fetch the user by ID
+//     const museums = await Museum.findAll();
+//     res.status(200).json(museums); // Send users as JSON response
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+
