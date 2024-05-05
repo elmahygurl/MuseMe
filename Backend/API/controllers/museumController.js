@@ -1,4 +1,4 @@
-const Museum = require('../models/Museum');
+const Museum = require('../models/museum');
 
 exports.getAllMuseums = async (req, res) => {
   try {
@@ -73,7 +73,7 @@ exports.loadMoreMuseums = async (req, res) => {
   const { offset, limit } = req.query;
   try {
     // Fetch additional museums from the database using offset and limit
-    const museums = await Museum.find({}).skip(parseInt(offset)).limit(parseInt(limit));
+    const museums = await Museum.find({}).skip(parseInt(offset)).limit(parseInt(limit)); // Assuming you're using Mongoose, we are using sql
     res.json(museums);
   } catch (error) {
     res.status(500).json({ message: error.message });
