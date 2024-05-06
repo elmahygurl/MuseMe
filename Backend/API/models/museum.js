@@ -1,7 +1,6 @@
 const db = require('../config/db');
 
-class Museum 
-{
+class Museum {
     constructor(museumID, name, location, governate, museumType, description, daysOff, openingHours, ticketPrice) {
         this.museumID = museumID;
         this.name = name;
@@ -16,25 +15,35 @@ class Museum
 
     async save() {
         try {
-            const result = await query('INSERT INTO Museum SET ?', this);
+            const result = await query('INSERT INTO museum SET ?', this);
             return result.insertId;
         } catch (error) {
             throw new Error(`Error saving museum: ${error.message}`);
         }
     }
 
+    // static async findAll() {
+    //     try {
+    //         const museums = await query('SELECT * FROM museum');
+    //         return museums;
+    //     } catch (error) {
+    //         throw new Error(`Error retrieving museums: ${error.message}`);
+    //     }
+    // }
     static async findAll() {
         try {
-            const museums = await query('SELECT * FROM Museum');
+            // Assuming db.query is the method to execute SQL queries
+            const [museums] = await db.query('SELECT * FROM museum'); // Make sure the table name is correct
             return museums;
         } catch (error) {
+            console.error('Error in Museum.findAll:', error);
             throw new Error(`Error retrieving museums: ${error.message}`);
         }
     }
 
     static async findByAttributes(attributes) {
         try {
-            const queryStr = 'SELECT * FROM Museum WHERE ?';
+            const queryStr = 'SELECT * FROM museum WHERE ?';
             const museums = await query(queryStr, attributes);
             return museums;
         } catch (error) {
@@ -44,7 +53,7 @@ class Museum
 
     static async deleteByAttributes(attributes) {
         try {
-            const queryStr = 'DELETE FROM Museum WHERE ?';
+            const queryStr = 'DELETE FROM museum WHERE ?';
             const result = await query(queryStr, attributes);
             return result.affectedRows;
         } catch (error) {
@@ -54,7 +63,7 @@ class Museum
 
     static async updateByAttributes(attributes, newValues) {
         try {
-            const queryStr = 'UPDATE Museum SET ? WHERE ?';
+            const queryStr = 'UPDATE museum SET ? WHERE ?';
             const result = await query(queryStr, [newValues, attributes]);
             return result.affectedRows;
         } catch (error) {
