@@ -22,18 +22,10 @@ class Museum {
         }
     }
 
-    // static async findAll() {
-    //     try {
-    //         const museums = await query('SELECT * FROM museum');
-    //         return museums;
-    //     } catch (error) {
-    //         throw new Error(`Error retrieving museums: ${error.message}`);
-    //     }
-    // }
-    static async findAll() {
+
+    static async getAllMuseums() {      //this function has been tested, works
         try {
-            // Assuming db.query is the method to execute SQL queries
-            const [museums] = await db.query('SELECT * FROM museum'); // Make sure the table name is correct
+            const [museums] = await db.query('SELECT * FROM museum'); 
             return museums;
         } catch (error) {
             console.error('Error in Museum.findAll:', error);
@@ -81,5 +73,10 @@ class Museum {
         }
     }
 }
+
+
+
+
+
 
 module.exports = Museum;

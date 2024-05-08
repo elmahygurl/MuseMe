@@ -102,7 +102,3 @@ app.use('/users', UserRouter);
 app.use('/events', EventRouter);
 app.use('/museumtickets', MuseumTicketRouter);
 app.use('/eventtickets', EventTicketRouter);
-
-
-
-
