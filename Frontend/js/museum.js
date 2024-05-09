@@ -11,6 +11,15 @@ function fetchMuseums() {
         .catch(error => console.error('Error fetching museums:', error));
 }
 
+async function Authorize(token) {
+    try {
+        await jwt.verify(token, "eriksie");
+        return true; // Return true if verification succeeds
+    } catch (err) {
+        return false; // Return false if there's an error (token invalid or expired)
+    }
+}
+
 // Function to render museums on the page
 function renderMuseums(museums) {
     const museumList = document.getElementById('museumList');
