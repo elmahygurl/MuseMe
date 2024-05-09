@@ -1,7 +1,7 @@
 // Function to fetch event data from backend API
 function fetchEvents() {
   // Make a GET request to your backend API endpoint that returns event data
-  fetch('http://localhost:5000/event/')
+  fetch('http://localhost:5000/events/')
       .then(response => response.json())
       .then(data => {
           // Once data is fetched, call a function to render events
