@@ -12,7 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -33,17 +33,17 @@
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="#footer-section" >
-                            Get our Newsletter 
+                        <a class="text-primary px-3" href="#footer-section">
+                            Get our Newsletter
                         </a>
                         <a class="text-primary px-3" href="signin.html">
                             Sign In
-                        </a>     
+                        </a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         <a href="events.html" class="nav-item nav-link">Events</a>
                         <a href="careers.html" class="nav-item nav-link">Careers</a>
                         <a href="contact.html" class="nav-item nav-link">Contact us</a>
-                        
+
                     </div>
                 </div>
             </nav>
@@ -119,7 +119,7 @@
                                         <option value="France">France</option>
                                         <option value="Australia">Australia</option>
                                         <option value="Japan">Japan</option>
-                                        
+
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
@@ -134,7 +134,8 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;" id="footer-section">
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
+        id="footer-section">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
@@ -143,16 +144,17 @@
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 20px;" placeholder="Your Email">
+                        <input type="text" class="form-control border-light" style="padding: 20px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-3">Sign Up</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote of the Day Section -->
-            <div  class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
+            <div class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
                 <div class="container text-center">
                     <h2 class="text-center mb-4" style="color: white;">Ancient quote of the Day</h2>
                     <div id="quote"></div>
@@ -162,7 +164,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                
+
             </div>
         </div>
     </div>
@@ -199,13 +201,13 @@
             "“Do not assess a man who has nothing, and thus falsify your pen”",
             "“True knowledge comes from the upward path which leads to the eternal fire; error, defeat and death result from following the lower path of worldly attachment”",
         ];
-    
+
         // Function to display a random quote
         function displayRandomQuote() {
             var randomIndex = Math.floor(Math.random() * quotes.length);
             document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
         }
-    
+
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
@@ -213,39 +215,54 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function(){
-            // Handle form submission
-            $("#signupForm").submit(function(event) {
-                // Prevent default form submission
-                event.preventDefault();
-
-                // Get form data
-                var username = $("#username").val();
-                var email = $("#email").val();
-                var password = $("#password").val();
-                var nationality = $("#nationality").val();
-
-                //Ajax request
-                $.ajax({
-                    type: "POST",
-                    url: "/signup",    ////////// to be replaced
-                    data: {
-                        username: username,
-                        email: email,
-                        password: password,
-                        nationality: nationality
+        $(document).ready(function () {
+            // Function to handle user sign up using AJAX
+            // Function to handle user sign up
+            function signUpUser(userData) {
+                // Define the API endpoint where the user data will be sent
+                const apiUrl = 'http://localhost:5000/users/create';
+                console.log(userData);
+                // Set up the options for the fetch request
+                const requestOptions = {
+                    method: 'POST', // Specify the request method
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate that the request body format is JSON
                     },
-                    success: function(response) {
-                        
-                        console.log("Signup successful:", response);
-                        alert("Signup successful!");
-                    },
-                    error: function(xhr, status, error) {
-                        
-                        console.error("Signup error:", error);
-                        alert("Signup failed. Please try again later.");
-                    }
-                });
+                    body: JSON.stringify(userData) // Convert the user data into JSON string
+                };
+
+                // Make a POST request with the user data
+                fetch(apiUrl, requestOptions)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json(); // Parse JSON response body
+                    })
+                    .then(result => {
+                        console.log('User signed up:', result); // Log success message and result
+                        alert('Signup successful!'); // Notify user of successful sign up
+                    })
+                    .catch(error => {
+                        console.error('Error during signup:', error);
+                        alert('Signup failed! Please try again.'); // Notify user of failed sign up
+                    });
+            }
+
+            // Example of using signUpUser function
+            $('#signupForm').submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Gather user data from form inputs
+                const userData = {
+                    username: $('#username').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    nationality: $('#nationality').val()
+                };
+
+                // Call the signUpUser function with the user data
+                signUpUser(userData);
             });
         });
     </script>

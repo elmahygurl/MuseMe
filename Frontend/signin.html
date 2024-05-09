@@ -11,7 +11,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -32,14 +32,14 @@
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="#footer-section" >
-                            Get our Newsletter 
-                        </a>   
+                        <a class="text-primary px-3" href="#footer-section">
+                            Get our Newsletter
+                        </a>
                     </div>
                 </div>
             </div>
@@ -83,35 +83,36 @@
     </div>
     <!-- Header End -->
 
-   <!-- Sign In Form Start -->
-<div class="container-fluid bg-light py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <form id="signInForm">
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter username">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </form>
-                        <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
+    <!-- Sign In Form Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="signInForm">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            </form>
+                            <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Sign In Form End -->
+    <!-- Sign In Form End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;" id="footer-section">
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
+        id="footer-section">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
@@ -120,16 +121,17 @@
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 20px;" placeholder="Your Email">
+                        <input type="text" class="form-control border-light" style="padding: 20px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-3">Sign Up</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote of the Day Section -->
-            <div  class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
+            <div class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
                 <div class="container text-center">
                     <h2 class="text-center mb-4" style="color: white;">Ancient quote of the Day</h2>
                     <div id="quote"></div>
@@ -139,7 +141,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                
+
             </div>
         </div>
     </div>
@@ -176,50 +178,70 @@
             "“Do not assess a man who has nothing, and thus falsify your pen”",
             "“True knowledge comes from the upward path which leads to the eternal fire; error, defeat and death result from following the lower path of worldly attachment”",
         ];
-    
+
         // Function to display a random quote
         function displayRandomQuote() {
             var randomIndex = Math.floor(Math.random() * quotes.length);
             document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
         }
-    
+
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Script to handle form submission with AJAX -->
+    <script>
+        $(document).ready(function () {
+            // Function to handle user sign up using AJAX
+            // Function to handle user sign up
+            function signInUser(userData) {
+                // Define the API endpoint where the user data will be sent
+                const apiUrl = 'http://localhost:5000/users/login';
+                console.log(userData);
+                // Set up the options for the fetch request
+                const requestOptions = {
+                    method: 'POST', // Specify the request method
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate that the request body format is JSON
+                    },
+                    body: JSON.stringify(userData) // Convert the user data into JSON string
+                };
 
-<!-- Script to handle form submission with AJAX -->
-<script>
-    $(document).ready(function() {
-        $('#signInForm').submit(function(event) {
-            // Prevent default form submission
-            event.preventDefault();
+                // Make a POST request with the user data
+                fetch(apiUrl, requestOptions)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json(); // Parse JSON response body
+                    })
+                    .then(result => {
+                        console.log('User signed in:', result); // Log success message and result
+                        alert('Sign in successful!'); // Notify user of successful sign up
+                    })
+                    .catch(error => {
+                        console.error('Error during sign in:', error);
+                        alert('Sign in failed! Please try again.'); // Notify user of failed sign up
+                    });
+            }
 
-            var username = $('#username').val();
-            var password = $('#password').val();
+            // Example of using signUpUser function
+            $('#signInForm').submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission
 
-            //AJAX request  for authentication
-            $.ajax({
-                url: '/login', ////////// to be replaced
-                method: 'POST',
-                data: {
-                    username: username,
-                    password: password
-                },
-                success: function(response) {
-                    // Handle the response from the server
-                    if (response === 'success') {
-                        alert('Sign in successful');
-                    } else {
-                        alert('Sign in failed. Please check your credentials.');
-                    }
-                },
-                error: function() {
-                    alert('An error occurred while processing your request.');
-                }
+                // Gather user data from form inputs
+                const userData = {
+                    username: $('#username').val(),
+                    password: $('#password').val(),
+                };
+
+                // Call the signUpUser function with the user data
+                signInUser(userData);
             });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>

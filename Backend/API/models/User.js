@@ -68,15 +68,29 @@ class User {
             throw error;
         }
     }
-
+    static async findByUsername(username) {
+        try {
+            const [rows] = await db.query('SELECT * FROM user WHERE username = ?', [username]);
+            if (rows.length > 0) {
+                return rows[0]; // Return the first user found
+            } else {
+                return null; // Return null if no user is found
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
     static async createUser(username, email, password, nationality) {
         try {
             const user = new User({ username, email, password, nationality });
             const userID = await user.save();
             return userID;
+
         } catch (error) {
-            throw error;
+            console.error("Error creating user:", error);
+            throw error; // You might want to throw a more specific error or handle it differently
         }
+
     }
 }
 
