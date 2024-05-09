@@ -116,7 +116,7 @@
                         <!-- Museum ticket price -->
                         <p class="card-text"><strong>Ticket Price:</strong> museum.ticketPrice </p>
                         <!-- Buy ticket button -->
-                        <a href="ticketBooking.html" class="btn btn-primary">Buy Ticket Now</a>
+                        <a id="buyTicketBtn" href="" class="btn btn-primary">Buy Ticket Now</a>
                     </div>
                 </div>
             </div>
@@ -205,6 +205,24 @@
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
+
+<script>
+    // Function to handle the Buy Ticket Now button click
+document.getElementById('buyTicketBtn').addEventListener('click', async function(event) {
+    // Prevent the default action of the anchor tag
+    event.preventDefault();
+
+    // Call the Authorize function to check if the user is logged in
+    var isLoggedIn = await Authorize();
+
+    // Redirect the user based on their login status
+    if (isLoggedIn) {
+        window.location.href = 'ticketBooking.html'; // Redirect to ticketBooking.html if logged in
+    } else {
+        window.location.href = 'signin.html'; // Redirect to signin.html if not logged in
+    }
+});
+</script>
 
 
 
