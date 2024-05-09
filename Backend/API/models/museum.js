@@ -75,8 +75,4 @@ class Museum {
 }
 
 
-
-
-
-
 module.exports = Museum;

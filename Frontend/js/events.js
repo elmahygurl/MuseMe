@@ -29,7 +29,7 @@ function renderEvents(eventData) {
                   <p class="card-text"><strong>From:</strong> ${event.startDateTime}</p>
                   <p class="card-text"><strong>To:</strong> ${event.endDateTime}</p>
                   <p class="card-text"><strong>Ticket Price:</strong> ${event.ticketPrice} EGP</p>
-                  <a href="#" class="btn btn-primary">Buy Ticket Now</a>
+                  <a href="signin.html" class="btn btn-primary">Buy Ticket Now</a>
               </div>
           </div>
       `;

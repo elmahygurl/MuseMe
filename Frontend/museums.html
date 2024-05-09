@@ -116,7 +116,7 @@
                         <!-- Museum ticket price -->
                         <p class="card-text"><strong>Ticket Price:</strong> museum.ticketPrice </p>
                         <!-- Buy ticket button -->
-                        <a id="buyTicketBtn" href="" class="btn btn-primary">Buy Ticket Now</a>
+                        <a href="signin.html"  class="btn btn-primary">Buy Ticket Now</a>
                     </div>
                 </div>
             </div>
@@ -177,6 +177,8 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -206,14 +208,17 @@
         window.onload = displayRandomQuote;
     </script>
 
-<script>
+<!-- <script>
     // Function to handle the Buy Ticket Now button click
 document.getElementById('buyTicketBtn').addEventListener('click', async function(event) {
     // Prevent the default action of the anchor tag
-    event.preventDefault();
+    // event.preventDefault();
+
+    // Retrieve the token from the cookie
+    var token = Cookies.get('token');
 
     // Call the Authorize function to check if the user is logged in
-    var isLoggedIn = await Authorize();
+    var isLoggedIn = await Authorize(token);
 
     // Redirect the user based on their login status
     if (isLoggedIn) {
@@ -222,7 +227,7 @@ document.getElementById('buyTicketBtn').addEventListener('click', async function
         window.location.href = 'signin.html'; // Redirect to signin.html if not logged in
     }
 });
-</script>
+</script> -->
 
 
 

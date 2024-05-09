@@ -191,6 +191,8 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
     <!-- Script to handle form submission with AJAX -->
     <script>
         $(document).ready(function () {
@@ -220,6 +222,12 @@
                     .then(result => {
                         console.log('User signed in:', result); // Log success message and result
                         alert('Sign in successful!'); // Notify user of successful sign up
+
+                        // Save the token in a cookie
+                        Cookies.set('token', result.token, { expires: 7 }); // 'expires' specifies the number of days until the cookie expires
+                        
+                        // Redirect to ticketBooking.html
+                        window.location.href = "ticketBooking.html";
                     })
                     .catch(error => {
                         console.error('Error during sign in:', error);

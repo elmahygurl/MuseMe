@@ -10,6 +10,7 @@ exports.getAllUsers = async (req, res) => {
 };
 
 const jwt = require('jsonwebtoken');
+const Cookies = require('js-cookie'); // Import the js-cookie library
 function generateToken(name) {
   const payload = {
     username: name,

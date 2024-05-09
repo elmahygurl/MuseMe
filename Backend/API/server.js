@@ -27,6 +27,8 @@ app.use(cors({
   credentials: true,
 }));
 
+app.use(express.static('signin.html')); // Serve files from the 'public' directory
+
 // Set up Multer storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
