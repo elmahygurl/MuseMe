@@ -8,8 +8,7 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -24,6 +23,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/events.js"></script>
 </head>
 
 <body>
@@ -90,6 +91,34 @@
     </div>
     <!-- Header End -->
 
+<!-- Events Start -->
+<div class="container mt-5" id="eventContainer">
+    <div class="row" id="eventList">
+        <!-- Begin Loop -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <!-- Event photo (if available) -->
+                <!-- <img src="event.photo" class="card-img-top" alt="Event Photo"> -->
+                <div class="card-body">
+                    <!-- Event name -->
+                    <h5 class="card-title">event.name</h5>
+                    <!-- Event description -->
+                    <p class="card-text">event.description</p>
+                    <!-- Event start date and time -->
+                    <p class="card-text"><strong>From:</strong> event.startDateTime</p>
+                    <!-- Event end date and time -->
+                    <p class="card-text"><strong>To:</strong> event.endDateTime</p>
+                    <!-- Ticket price -->
+                    <p class="card-text"><strong>Ticket Price:</strong> event.ticketPrice</p>
+                    <!-- Buy ticket button -->
+                    <a href="#" class="btn btn-primary">Buy Ticket Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- End Loop -->
+    </div>
+</div>
+<!-- Events End -->
 
 
 

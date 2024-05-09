@@ -8,8 +8,6 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -116,7 +114,7 @@
                         <!-- Museum opening hours -->
                         <p class="card-text"><strong>Opening Hours:</strong> museum.openingHours</p>
                         <!-- Museum ticket price -->
-                        <p class="card-text"><strong>Ticket Price:</strong> museum.ticketPrice</p>
+                        <p class="card-text"><strong>Ticket Price:</strong> museum.ticketPrice </p>
                         <!-- Buy ticket button -->
                         <a href="#" class="btn btn-primary">Buy Ticket Now</a>
                     </div>
@@ -208,97 +206,7 @@
         window.onload = displayRandomQuote;
     </script>
 
-    <!-- <script>
-    // Mock museum data
-    const museums = [
-        { name: 'Museum 0', description: 'Description 1', openingHours: '9:00 AM - 5:00 PM', ticketPrice: '$10' },
-        { name: 'Museum 1', description: 'Description 2', openingHours: '10:00 AM - 6:00 PM', ticketPrice: '$15' },
-        { name: 'Museum 2', description: 'Description 3', openingHours: '9:00 AM - 5:00 PM', ticketPrice: '$10' },
-        { name: 'Museum 3', description: 'Description 4', openingHours: '10:00 AM - 6:00 PM', ticketPrice: '$15' },
-        { name: 'Museum 5', description: 'Description 5', openingHours: '9:00 AM - 5:00 PM', ticketPrice: '$10' },
-        { name: 'Museum 6', description: 'Description 6', openingHours: '10:00 AM - 6:00 PM', ticketPrice: '$15' },
-        // Add more museum objects as needed
-    ];
 
-    // Function to render museums
-    function renderMuseums(startIndex, count) {
-        const museumList = document.getElementById('museumList');
-        for (let i = startIndex; i < Math.min(startIndex + count, museums.length); i++) {
-            const museum = museums[i];
-            const museumHTML = `
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <img src="${museum.photo}" class="card-img-top" alt="Museum Photo">
-                        <div class="card-body">
-                            <h5 class="card-title">${museum.name}</h5>
-                            <p class="card-text">${museum.description}</p>
-                            <p class="card-text"><strong>Opening Hours:</strong> ${museum.openingHours}</p>
-                            <p class="card-text"><strong>Ticket Price:</strong> ${museum.ticketPrice}</p>
-                            <a href="#" class="btn btn-primary">Buy Ticket Now</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-            museumList.innerHTML += museumHTML;
-        }
-    }
-
-    // Initial render
-    renderMuseums(0, 5);
-
-    // Load More button click event
-    document.getElementById('loadMoreBtn').addEventListener('click', () => {
-        const startIndex = document.querySelectorAll('#museumList .col-md-6').length;
-        renderMuseums(startIndex, 5);
-    });
-    </script> -->
-
-
-    <script>
-        $(document).ready(function () {
-            // Counter to keep track of loaded museums
-            let offset = 0;
-    
-            function loadMoreMuseums() {
-                $.ajax({
-                    url: '/museums/loadmore',
-                    method: 'GET',
-                    data: { offset: offset, limit: 5 }, // Adjust the limit as needed
-                    success: function (response) {
-                        // Append the loaded museums to the museum list
-                        response.forEach(function (museum) {
-                            // Append museum data to the HTML
-                            const museumHTML = `
-                                <div class="col-md-6 mb-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${museum.name}</h5>
-                                            <p class="card-text">${museum.description}</p>
-                                            <p class="card-text"><strong>Opening Hours:</strong> ${museum.openingHours}</p>
-                                            <p class="card-text"><strong>Ticket Price:</strong> ${museum.ticketPrice}</p>
-                                            <a href="#" class="btn btn-primary">Buy Ticket Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                            $('#museumList').append(museumHTML);
-                        });
-                        // Increment offset
-                        offset += response.length;
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Error loading more museums:', error);
-                    }
-                });
-            }
-    
-            // Load more button click event
-            $('#loadMoreBtn').on('click', function () {
-                loadMoreMuseums();
-            });
-        });
-    </script>
-    
 
 </body>
 

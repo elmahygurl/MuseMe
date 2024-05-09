@@ -29,14 +29,16 @@ class Event {
         }
     }
 
-    static async findAll() {
+    static async getAllEvents() {
         try {
-            const [rows] = await db.query('SELECT * FROM Event');
-            return rows.map(row => new Event(row));
+            const [rows] = await db.query('SELECT * FROM event');
+            return rows;
         } catch (error) {
-            throw error;
+            console.error('Error in events.getAllEvents:', error);
+            throw new Error(`Error retrieving events: ${error.message}`);
         }
     }
+
 
     static async findByAttributes(attributes) {
         try {

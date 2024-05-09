@@ -37,7 +37,7 @@ function renderMuseums(museums) {
                     <h5 class="card-title">${museum.name}</h5>
                     <p class="card-text">${museum.description}</p>
                     <p class="card-text"><strong>Opening Hours:</strong> ${museum.openingHours}</p>
-                    <p class="card-text"><strong>Ticket Price:</strong> ${museum.ticketPrice}</p>
+                    <p class="card-text"><strong>Ticket Price:</strong> ${museum.ticketPrice} EGP</p>
                     <a href="#" class="btn btn-primary">Buy Ticket Now</a>
                 </div>
             </div>
