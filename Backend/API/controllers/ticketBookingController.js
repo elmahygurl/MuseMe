@@ -27,6 +27,7 @@ exports.createTicket = async (req, res) => {
   const TicketData = req.body;
   const username = TicketData.username;
   const tableName = TicketData.tableName;
+  console.log("Request body:", req.body); 
   const selectedOption = TicketData.selectedOption;
   const numberOfTickets = TicketData.numberOfTickets;
   try {

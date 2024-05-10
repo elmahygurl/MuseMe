@@ -22,7 +22,7 @@ class ticket{
             table = 'museumticketpurchase';
             idFieldName = 'museumID';
         } else {
-            throw new Error('Invalid tableName');
+            throw new Error('Invalid tableName: ' + this.tableName);
         }
 
         // Get the userID based on the username
@@ -62,3 +62,4 @@ class ticket{
 }
 
 }
+module.exports = ticket;

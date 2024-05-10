@@ -248,6 +248,7 @@
             // Function to update options based on selection
             function updateOptions() {
                 const selectedType = document.querySelector('input[name="typeSelect"]:checked').value;
+                console.log(selectedType);
                 // Clear previous options
                 optionSelect.innerHTML = '<option selected disabled>Choose...</option>';
                 // Show or hide city selection based on selected type
@@ -399,6 +400,7 @@
                     formData.append('tableName', museumRadio.checked ? 'museum' : 'event');
                     formData.append('selectedOption', selectedOption);
                     formData.append('numberOfTickets', numberOfTickets);
+                    
                     // Iterate over formData entries and log each key-value pair
                     for (let [key, value] of formData.entries()) {
                         console.log(`${key}: ${value}`);
@@ -406,18 +408,21 @@
                     // Set up the options for the fetch request
                     const requestOptions = {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json', // Indicate that the request body format is JSON
-                        },
-                        body: JSON.stringify(formData)
+                        mode: 'no-cors',
+                      headers: {
+                             'Content-Type': 'application/json', // Indicate that the request body format is JSON
+                         },
+                        body: formData,
+                        credentials: 'include' // Include credentials in the request
                     };
                     fetch(apiUrl, requestOptions)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json(); // Parse JSON response body
-                        })
+                        // .then(response => {
+                        //     if (!response.ok) {
+                        //         console.log(response);
+                        //         throw new Error('Network response was not ok');
+                        //     }
+                        //     return response.json(); // Parse JSON response body
+                        // })
                         .then(result => {
                             console.log('ticket added:', result);
                             alert('Ticket bought!');
