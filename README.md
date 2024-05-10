@@ -33,6 +33,7 @@ Welcome to our Museum Ticket Booking! The purpose of this application is to crea
 ## Contributors
 
 - [Youssef Elkady](https://github.com/Youssef-Elkady)
-- Jumana Wanass ([@JumanaWanass](#))
-- Salma ElMahy ([@elmahygurl](#))
+- [Salma ElMahy](https://github.com/elmahygurl)
+- [Jumana Wanass](https://github.com/JumanaWanass)
+
 
