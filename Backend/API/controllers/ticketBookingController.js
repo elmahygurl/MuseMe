@@ -23,21 +23,6 @@ exports.getMuseumTicketByAttributes = async (req, res) => {
   }
 };
 
-// exports.createTicket = async (req, res) => {
-//   console.log("controller start");
-//   const TicketData = req.body;
-//   const username = TicketData.username;
-//   const tableName = TicketData.tableName;
-//   console.log("Request body:", req.body); 
-//   const selectedOption = TicketData.selectedOption;
-//   const numberOfTickets = TicketData.numberOfTickets;
-//   try {
-//     const Ticket = await ticket.createTicket(username,tableName,selectedOption,numberOfTickets);
-//     res.status(201).json(Ticket);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// };
 
 exports.createTicket = async (req, res) => {
   console.log("controller start");
