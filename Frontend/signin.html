@@ -224,9 +224,20 @@
                         alert('Sign in successful!'); // Notify user of successful sign up
 
                         // Save the token in a cookie
-                        Cookies.set('token', result.token, { expires: 7 }); // 'expires' specifies the number of days until the cookie expires
-                        
+                        //Cookies.set('token', result.token, { expires: 7 }); // 'expires' specifies the number of days until the cookie expires
+
+                        // After successful sign in
+                        localStorage.setItem('token', result.token);
+
+                        //Cookies.set('token', result.token, { expires: 7, path: '/', domain: 'yourdomain.com' });
+
+                        // In signIn.html
+                        // Cookies.set('testCookie', 'seya7', { expires: 7, path: '/', domain: 'localhost' });
+                        // console.log('Cookie set: testCookie');
                         // Redirect to ticketBooking.html
+                        // Example of setting a cookie
+                        // document.cookie = "testCookie=seya7; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/; domain=localhost";
+                        // console.log('Cookie set: ',document.cookie );
                         window.location.href = "ticketBooking.html";
                     })
                     .catch(error => {

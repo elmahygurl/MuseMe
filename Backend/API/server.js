@@ -23,9 +23,12 @@ app.use(express.json());
 // );
 
 app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST'], // Add other methods as needed
   optionsSuccessStatus: 200,
   credentials: true,
 }));
+
 
 app.use(express.static('signin.html')); // Serve files from the 'public' directory
 
@@ -69,6 +72,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false } // Set secure to true if you're using HTTPS
 }));
+
+// Middleware to handle FormData
+app.use(express.urlencoded({ extended: true })); // Handle URL-encoded data
+app.use(express.json()); // Parse JSON bodies
+app.use(upload.any()); // Handle FormData
+
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -92,9 +101,9 @@ const MuseumRouter = require('./routers/museumRouter');
 const AdminRouter = require('./routers/adminRouter');
 const UserRouter = require('./routers/userRouter');
 const EventRouter = require('./routers/eventRouter');
-const MuseumTicketRouter = require('./routers/museumticketRouter');
-const EventTicketRouter = require('./routers/eventticketpurchaseRouter');
-
+// const MuseumTicketRouter = require('./routers/museumticketRouter');
+// const EventTicketRouter = require('./routers/eventticketpurchaseRouter');
+const TicketBookingRouter = require('./routers/ticketBookingRouter');
 
 
 // Mounting routers
@@ -102,6 +111,3 @@ app.use('/museums', MuseumRouter);
 app.use('/admin', AdminRouter);
 app.use('/users', UserRouter);
 app.use('/events', EventRouter);
-app.use('/museumtickets', MuseumTicketRouter);
-app.use('/eventtickets', EventTicketRouter);
-module.exports = app; 
