@@ -92,9 +92,9 @@ const MuseumRouter = require('./routers/museumRouter');
 const AdminRouter = require('./routers/adminRouter');
 const UserRouter = require('./routers/userRouter');
 const EventRouter = require('./routers/eventRouter');
-const MuseumTicketRouter = require('./routers/museumticketRouter');
-const EventTicketRouter = require('./routers/eventticketpurchaseRouter');
-
+// const MuseumTicketRouter = require('./routers/museumticketRouter');
+// const EventTicketRouter = require('./routers/eventticketpurchaseRouter');
+const TicketBookingRouter = require('./routers/ticketBookingRouter');
 
 
 // Mounting routers
@@ -102,5 +102,6 @@ app.use('/museums', MuseumRouter);
 app.use('/admin', AdminRouter);
 app.use('/users', UserRouter);
 app.use('/events', EventRouter);
-app.use('/museumtickets', MuseumTicketRouter);
-app.use('/eventtickets', EventTicketRouter);
+// app.use('/museumtickets', MuseumTicketRouter);
+// app.use('/eventtickets', EventTicketRouter);
+app.use('/ticketBooking', TicketBookingRouter);
