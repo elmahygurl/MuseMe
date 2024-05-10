@@ -41,22 +41,22 @@ CREATE TABLE `Event` (
 );
 
 -- Table for Ticket purchases by User for Events
-CREATE TABLE EventTicketPurchase (
-    userID INT,
-    eventID INT,
-    purchaseDate DATE,
-    FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (eventID) REFERENCES Event(eventID),
-    PRIMARY KEY (userID, eventID)
+CREATE TABLE eventticketpurchase (
+    eventTicketId INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    eventID INT NOT NULL,
+    purchaseDate DATE NOT NULL,
+    FOREIGN KEY (eventID) REFERENCES event(eventID)
+    -- Add any additional constraints or foreign keys if necessary
 );
 
 -- Table for Ticket purchases by User for Museums
-CREATE TABLE MuseumTicketPurchase (
-    userID INT,
-    museumID INT,
-    purchaseDate DATE,
-    FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (museumID) REFERENCES Museum(museumID),
-    PRIMARY KEY (userID, museumID)
+CREATE TABLE museumticketpurchase (
+    museumTicketId INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    museumID INT NOT NULL,
+    purchaseDate DATE NOT NULL,
+    FOREIGN KEY (museumID) REFERENCES museum(museumID)
+    -- Add any additional constraints or foreign keys if necessary
 );
 
