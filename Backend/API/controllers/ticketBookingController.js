@@ -23,7 +23,24 @@ exports.getMuseumTicketByAttributes = async (req, res) => {
   }
 };
 
+// exports.createTicket = async (req, res) => {
+//   console.log("controller start");
+//   const TicketData = req.body;
+//   const username = TicketData.username;
+//   const tableName = TicketData.tableName;
+//   console.log("Request body:", req.body); 
+//   const selectedOption = TicketData.selectedOption;
+//   const numberOfTickets = TicketData.numberOfTickets;
+//   try {
+//     const Ticket = await ticket.createTicket(username,tableName,selectedOption,numberOfTickets);
+//     res.status(201).json(Ticket);
+//   } catch (error) {
+//     res.status(400).json({ message: error.message });
+//   }
+// };
+
 exports.createTicket = async (req, res) => {
+  console.log("controller start");
   const TicketData = req.body;
   const username = TicketData.username;
   const tableName = TicketData.tableName;
@@ -31,13 +48,19 @@ exports.createTicket = async (req, res) => {
   const selectedOption = TicketData.selectedOption;
   const numberOfTickets = TicketData.numberOfTickets;
   try {
-    const Ticket = await ticket.createTicket(username,tableName,selectedOption,numberOfTickets);
-    res.status(201).json(Ticket);
+    // Loop to create the specified number of tickets
+    for (let i = 0; i < numberOfTickets; i++) {
+      const Ticket = await ticket.createTicket(username, tableName, selectedOption, numberOfTickets);
+      // Optionally, you can log each ticket creation or handle them as needed
+      console.log(`Ticket ${i + 1} created successfully.`);
+    }
+    // If you need to return a response after all tickets are created, you can do so here
+    // For example, you might want to return a success message or the details of the last ticket created
+    res.status(201).json({ message: `Successfully created ${numberOfTickets} tickets.` });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
-
 
 exports.updateMuseumTicket = async (req, res) => {
   const { userID, museumID } = req.params;

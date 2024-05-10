@@ -41,7 +41,7 @@ class ticket{
         const insertQuery = `INSERT INTO ${table} (userID, ${idFieldName}, purchaseDate) VALUES (?, ?, NOW())`;
         const insertValues = [userID, idValue];
         const [insertResult] = await db.query(insertQuery, insertValues);
-
+        console.log("Insertedd");
         // Return the inserted ticket ID
         return insertResult.insertId;
     } catch (error) {

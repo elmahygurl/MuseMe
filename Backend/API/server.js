@@ -111,3 +111,4 @@ app.use('/museums', MuseumRouter);
 app.use('/admin', AdminRouter);
 app.use('/users', UserRouter);
 app.use('/events', EventRouter);
+app.use('/ticketBooking',TicketBookingRouter);
