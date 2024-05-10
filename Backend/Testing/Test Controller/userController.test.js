@@ -41,5 +41,4 @@ describe('User Controller', () => {
     expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
   });
 
-  // Add more test cases as needed
 });
