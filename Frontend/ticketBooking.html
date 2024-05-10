@@ -11,7 +11,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -32,24 +32,24 @@
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-primary px-3" href="#footer-section" >
-                            Get our Newsletter 
+                        <a class="text-primary px-3" href="#footer-section">
+                            Get our Newsletter
                         </a>
                         <a class="text-primary px-3" href="index.html">
                             Log out
-                        </a>     
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Topbar End -->
-    
+
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -68,9 +68,9 @@
                         <a href="events.html" class="nav-item nav-link">Events</a>
                         <a href="careers.html" class="nav-item nav-link">Careers</a>
                         <a href="contact.html" class="nav-item nav-link">Contact us</a>
-                        
+
                     </div>
-                    
+
                 </div>
             </nav>
         </div>
@@ -89,74 +89,79 @@
     <!-- Header End -->
 
     <!-- Booking Start -->
-<div class="container-fluid booking mt-5 pb-5">
-    <div class="container pb-5">
-        <div class="bg-light shadow" style="padding: 30px;">
-            <div class="row align-items-center" style="min-height: 60px;">
-                <div class="col-md-9">
-                    <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <div class="mb-3 mb-md-0">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="typeSelect" id="museumRadio" value="museum" checked>
-                                    <label class="form-check-label" for="museumRadio">Museum</label>
+    <form id="bookingForm" class="container-fluid booking mt-5 pb-5">
+        <div class="container pb-5">
+            <div class="bg-light shadow" style="padding: 30px;">
+                <div class="row align-items-center" style="min-height: 60px;">
+                    <div class="col-md-9">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="mb-3 mb-md-0">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeSelect" id="museumRadio"
+                                            value="museum" checked>
+                                        <label class="form-check-label" for="museumRadio">Museum</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="typeSelect" id="eventRadio"
+                                            value="event">
+                                        <label class="form-check-label" for="eventRadio">Event</label>
+                                    </div>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="typeSelect" id="eventRadio" value="event">
-                                    <label class="form-check-label" for="eventRadio">Event</label>
+                            </div>
+                            <div class="col-md-3" id="citySelectContainer">
+                                <div class="mb-3 mb-md-0">
+                                    <select id="citySelect" class="custom-select px-4" style="height: 47px;">
+                                        <option value="all" selected>Choose city</option>
+                                        <option value="Alex">Alexandria</option>
+                                        <option value="Cairo">Cairo</option>
+                                        <option value="Aswan">Aswan</option>
+                                        <option value="Sharm El sheikh">Sharm El sheikh</option>
+                                        <option value="Al Minya">Al Minya</option>
+                                        <option value="El Alamein">El Alamein</option>
+                                        <option value="Hurghada">Hurghada</option>
+                                        <option value="al-Minufiyah">al-Minufiyah</option>
+                                        <option value="Saqqara">Saqqara</option>
+                                        <option value="Ismaïlia">Ismaïlia</option>
+                                        <option value="Faiyum">Faiyum</option>
+                                        <option value="El Kharga">El Kharga</option>
+                                        <option value="Port Said">Port Said</option>
+                                        <option value="Giza">Giza</option>
+                                        <option value="Luxor">Luxor</option>
+                                        <option value="Herriat Raznah">Herriat Raznah</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3" id="citySelectContainer">
-                            <div class="mb-3 mb-md-0">
-                                <select id="citySelect" class="custom-select px-4" style="height: 47px;">
-                                    <option value="all" selected>Choose city</option>
-                                    <option value="Alex">Alexandria</option>
-                                    <option value="Cairo">Cairo</option>
-                                    <option value="Aswan">Aswan</option>
-                                    <option value="Sharm El sheikh">Sharm El sheikh</option>
-                                    <option value="Al Minya">Al Minya</option>
-                                    <option value="El Alamein">El Alamein</option>
-                                    <option value="Hurghada">Hurghada</option>
-                                    <option value="al-Minufiyah">al-Minufiyah</option>
-                                    <option value="Saqqara">Saqqara</option>
-                                    <option value="Ismaïlia">Ismaïlia</option>
-                                    <option value="Faiyum">Faiyum</option>
-                                    <option value="El Kharga">El Kharga</option>
-                                    <option value="Port Said">Port Said</option>
-                                    <option value="Giza">Giza</option>
-                                    <option value="Luxor">Luxor</option>
-                                    <option value="Herriat Raznah">Herriat Raznah</option>
-                                </select>
+                            <div class="col-md-6">
+                                <div class="mb-3 mb-md-0">
+                                    <select id="optionSelect" class="custom-select px-4" style="height: 47px;">
+                                        <option selected disabled>Choose...</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 mb-md-0">
-                                <select id="optionSelect" class="custom-select px-4" style="height: 47px;">
-                                    <option selected disabled>Choose...</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3 mb-md-0">
-                            <input type="number" id="numTickets" class="form-control p-4" placeholder="Number of Tickets" style="height: 47px; margin-top: -2px;" min="1">
+                            <div class="col-md-4">
+                                <div class="mb-3 mb-md-0">
+                                    <input type="number" id="numTickets" class="form-control p-4"
+                                        placeholder="Number of Tickets" style="height: 47px; margin-top: -2px;" min="1">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <button id="submitBtn" class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Submit</button>
+                    <div class="col-md-3">
+                        <button id="submitBtn" class="btn btn-primary btn-block" type="submit"
+                            style="height: 47px; margin-top: -2px;">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Booking End -->
+    </form>
+    <!-- Booking End -->
 
 
-   
+
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;" id="footer-section">
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
+        id="footer-section">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
@@ -165,16 +170,17 @@
                 <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
                 <div class="w-100">
                     <div class="input-group">
-                        <input type="text" class="form-control border-light" style="padding: 20px;" placeholder="Your Email">
+                        <input type="text" class="form-control border-light" style="padding: 20px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary px-3">Sign Up</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote of the Day Section -->
-            <div  class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
+            <div class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
                 <div class="container text-center">
                     <h2 class="text-center mb-4" style="color: white;">Ancient quote of the Day</h2>
                     <div id="quote"></div>
@@ -184,7 +190,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                
+
             </div>
         </div>
     </div>
@@ -221,112 +227,214 @@
             "“Do not assess a man who has nothing, and thus falsify your pen”",
             "“True knowledge comes from the upward path which leads to the eternal fire; error, defeat and death result from following the lower path of worldly attachment”",
         ];
-    
+
         // Function to display a random quote
         function displayRandomQuote() {
             var randomIndex = Math.floor(Math.random() * quotes.length);
             document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
         }
-    
+
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const typeSelect = document.querySelector('input[name="typeSelect"]:checked');
-        const optionSelect = document.getElementById('optionSelect');
-        const citySelectContainer = document.getElementById('citySelectContainer');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const typeSelect = document.querySelector('input[name="typeSelect"]:checked');
+            const optionSelect = document.getElementById('optionSelect');
+            const citySelectContainer = document.getElementById('citySelectContainer');
 
-        // Function to update options based on selection
-        function updateOptions() {
-            const selectedType = document.querySelector('input[name="typeSelect"]:checked').value;
-            // Clear previous options
-            optionSelect.innerHTML = '<option selected disabled>Choose...</option>';
-            // Show or hide city selection based on selected type
-            citySelectContainer.style.display = selectedType === 'museum' ? 'block' : 'none';
-            // Populate options based on selected type and city
-            if (selectedType === 'museum') {
-                const selectedCity = document.getElementById('citySelect').value;
-                // Museum options based on selected city
-                let museumOptions = [];
-                if (selectedCity === 'all') {
-                    museumOptions = ['Al Minya Museum', 'Denshway Museum', 'Graeco- Roman Museum','Alexandria National Museum',
-                    'Royal Jewlery Museum','Sadat Museum','History of Science Museum','Antiquities Museum','Manuscripts Museum',
-                    'Library of Alexandria Museum','Nubian Museum', 'Crocodile Museum','Museum of Egyptian Antiquities (Cairo museum)', 
-                    'National Museum of Egyptian Civilization', 'Museum of Islamic Art','The Coptic Museum','Gayer-Anderson Museum',
-                    'Oum Kulthum Museum','Abdeen Palace Museum','Agricultural Museum','Bayt al-Kritliyya','Bayt Al-Suhaymi',
-                    'Beit El-Umma (House of the People)','Beshtak Palace','Carriage Museum','Child Museum','Egyptian Geological Museum',
-                    'Egyptian Military museum','Gamal Abdel Nasser Museum','Gezira Center for Modern Art','Manyal Palace','Mohamed Nagy Museum',
-                    'Mukhtar Museum','Museum of Egyptian Railways','Museum of Islamic Ceramics','Taha Hussein Museum','Al-Alemein War Museum',
-                    'Kharga Museum','Aswan Museum','Karanis Site Museum','Mohamed Mahmoud Khalil Museum','National Museum of Sharqeya',
-                    'Hurghada Museum', 'Marine Museum','Ismaïlia Museum','Mummification Museum','Port Said Military Museum', 'Museum of Modern Art in Egypt',
-                    'Imhotep Museum','Sharm al-Sheikh Museum'
-                    ];
-                } else if (selectedCity === 'Al Minya') {
-                    museumOptions = ['Al Minya Museum'];
-                }else if (selectedCity === 'al-Minufiyah') {
-                    museumOptions = ['Denshway Museum'];
-                }else if (selectedCity === 'Alex') {
-                    museumOptions = ['Graeco- Roman Museum', 'Alexandria National Museum', 'Royal Jewlery Museum','Sadat Museum','History of Science Museum','Antiquities Museum','Manuscripts Museum','Library of Alexandria Museum'];
-                }else if (selectedCity === 'Aswan') {
-                    museumOptions = ['Nubian Museum', 'Crocodile Museum'];
-                }else if (selectedCity === 'Cairo') {
-                    museumOptions = ['Museum of Egyptian Antiquities (Cairo museum)', 'National Museum of Egyptian Civilization', 'Museum of Islamic Art','The Coptic Museum','Gayer-Anderson Museum','Oum Kulthum Museum','Abdeen Palace Museum','Agricultural Museum','Bayt al-Kritliyya','Bayt Al-Suhaymi','Beit El-Umma (House of the People)','Beshtak Palace','Carriage Museum','Child Museum','Egyptian Geological Museum','Egyptian Military museum','Gamal Abdel Nasser Museum','Gezira Center for Modern Art','Manyal Palace','Mohamed Nagy Museum','Mukhtar Museum','Museum of Egyptian Railways','Museum of Islamic Ceramics','Taha Hussein Museum'];
-                }else if (selectedCity === 'El Alamein') {
-                    museumOptions = ['Al-Alemein War Museum'];
-                }else if (selectedCity === 'El Kharga') {
-                    museumOptions = ['Kharga Museum'];
-                }else if (selectedCity === 'Elephantine') {
-                    museumOptions = ['Aswan Museum'];
-                }else if (selectedCity === 'Faiyum') {
-                    museumOptions = ['Karanis Site Museum'];
-                }else if (selectedCity === 'Giza') {
-                    museumOptions = ['Mohamed Mahmoud Khalil Museum'];
-                }else if (selectedCity === 'Herriat Raznah') {
-                    museumOptions = ['National Museum of Sharqeya'];
-                }else if (selectedCity === 'Hurghada') {
-                    museumOptions = ['Hurghada Museum', 'Marine Museum'];
-                }else if (selectedCity === 'Ismaïlia') {
-                    museumOptions = ['Ismaïlia Museum'];
-                }else if (selectedCity === 'Luxor') {
-                    museumOptions = ['Mummification Museum'];
-                }else if (selectedCity === 'Port Said') {
-                    museumOptions = ['Port Said Military Museum', 'Museum of Modern Art in Egypt'];
-                }else if (selectedCity === 'Saqqara') {
-                    museumOptions = ['Imhotep Museum'];
-                }else if (selectedCity === 'Sharm El sheikh') {
-                    museumOptions = ['Sharm al-Sheikh Museum'];
+            // Function to update options based on selection
+            function updateOptions() {
+                const selectedType = document.querySelector('input[name="typeSelect"]:checked').value;
+                // Clear previous options
+                optionSelect.innerHTML = '<option selected disabled>Choose...</option>';
+                // Show or hide city selection based on selected type
+                citySelectContainer.style.display = selectedType === 'museum' ? 'block' : 'none';
+                // Populate options based on selected type and city
+                if (selectedType === 'museum') {
+                    const selectedCity = document.getElementById('citySelect').value;
+                    // Museum options based on selected city
+                    let museumOptions = [];
+                    if (selectedCity === 'all') {
+                        museumOptions = ['Al Minya Museum', 'Denshway Museum', 'Graeco- Roman Museum', 'Alexandria National Museum',
+                            'Royal Jewlery Museum', 'Sadat Museum', 'History of Science Museum', 'Antiquities Museum', 'Manuscripts Museum',
+                            'Library of Alexandria Museum', 'Nubian Museum', 'Crocodile Museum', 'Museum of Egyptian Antiquities (Cairo museum)',
+                            'National Museum of Egyptian Civilization', 'Museum of Islamic Art', 'The Coptic Museum', 'Gayer-Anderson Museum',
+                            'Oum Kulthum Museum', 'Abdeen Palace Museum', 'Agricultural Museum', 'Bayt al-Kritliyya', 'Bayt Al-Suhaymi',
+                            'Beit El-Umma (House of the People)', 'Beshtak Palace', 'Carriage Museum', 'Child Museum', 'Egyptian Geological Museum',
+                            'Egyptian Military museum', 'Gamal Abdel Nasser Museum', 'Gezira Center for Modern Art', 'Manyal Palace', 'Mohamed Nagy Museum',
+                            'Mukhtar Museum', 'Museum of Egyptian Railways', 'Museum of Islamic Ceramics', 'Taha Hussein Museum', 'Al-Alemein War Museum',
+                            'Kharga Museum', 'Aswan Museum', 'Karanis Site Museum', 'Mohamed Mahmoud Khalil Museum', 'National Museum of Sharqeya',
+                            'Hurghada Museum', 'Marine Museum', 'Ismaïlia Museum', 'Mummification Museum', 'Port Said Military Museum', 'Museum of Modern Art in Egypt',
+                            'Imhotep Museum', 'Sharm al-Sheikh Museum'
+                        ];
+                    } else if (selectedCity === 'Al Minya') {
+                        museumOptions = ['Al Minya Museum'];
+                    } else if (selectedCity === 'al-Minufiyah') {
+                        museumOptions = ['Denshway Museum'];
+                    } else if (selectedCity === 'Alex') {
+                        museumOptions = ['Graeco- Roman Museum', 'Alexandria National Museum', 'Royal Jewlery Museum', 'Sadat Museum', 'History of Science Museum', 'Antiquities Museum', 'Manuscripts Museum', 'Library of Alexandria Museum'];
+                    } else if (selectedCity === 'Aswan') {
+                        museumOptions = ['Nubian Museum', 'Crocodile Museum'];
+                    } else if (selectedCity === 'Cairo') {
+                        museumOptions = ['Museum of Egyptian Antiquities (Cairo museum)', 'National Museum of Egyptian Civilization', 'Museum of Islamic Art', 'The Coptic Museum', 'Gayer-Anderson Museum', 'Oum Kulthum Museum', 'Abdeen Palace Museum', 'Agricultural Museum', 'Bayt al-Kritliyya', 'Bayt Al-Suhaymi', 'Beit El-Umma (House of the People)', 'Beshtak Palace', 'Carriage Museum', 'Child Museum', 'Egyptian Geological Museum', 'Egyptian Military museum', 'Gamal Abdel Nasser Museum', 'Gezira Center for Modern Art', 'Manyal Palace', 'Mohamed Nagy Museum', 'Mukhtar Museum', 'Museum of Egyptian Railways', 'Museum of Islamic Ceramics', 'Taha Hussein Museum'];
+                    } else if (selectedCity === 'El Alamein') {
+                        museumOptions = ['Al-Alemein War Museum'];
+                    } else if (selectedCity === 'El Kharga') {
+                        museumOptions = ['Kharga Museum'];
+                    } else if (selectedCity === 'Elephantine') {
+                        museumOptions = ['Aswan Museum'];
+                    } else if (selectedCity === 'Faiyum') {
+                        museumOptions = ['Karanis Site Museum'];
+                    } else if (selectedCity === 'Giza') {
+                        museumOptions = ['Mohamed Mahmoud Khalil Museum'];
+                    } else if (selectedCity === 'Herriat Raznah') {
+                        museumOptions = ['National Museum of Sharqeya'];
+                    } else if (selectedCity === 'Hurghada') {
+                        museumOptions = ['Hurghada Museum', 'Marine Museum'];
+                    } else if (selectedCity === 'Ismaïlia') {
+                        museumOptions = ['Ismaïlia Museum'];
+                    } else if (selectedCity === 'Luxor') {
+                        museumOptions = ['Mummification Museum'];
+                    } else if (selectedCity === 'Port Said') {
+                        museumOptions = ['Port Said Military Museum', 'Museum of Modern Art in Egypt'];
+                    } else if (selectedCity === 'Saqqara') {
+                        museumOptions = ['Imhotep Museum'];
+                    } else if (selectedCity === 'Sharm El sheikh') {
+                        museumOptions = ['Sharm al-Sheikh Museum'];
+                    }
+                    museumOptions.forEach(option => {
+                        const opt = document.createElement('option');
+                        opt.value = option;
+                        opt.innerHTML = option;
+                        optionSelect.appendChild(opt);
+                    });
+                } else if (selectedType === 'event') {
+                    // Event options
+                    const eventOptions = ['Classics Revisited', 'Mythology Nights', 'Ancient Coin Exhibition', 'Alexandria Through Ages', 'Maritime Heritage', 'Ptolemaic Dynasty', 'Royal Jewels', 'Craftsmanship Workshop', 'Dynastic Fashion'];
+                    eventOptions.forEach(option => {
+                        const opt = document.createElement('option');
+                        opt.value = option;
+                        opt.innerHTML = option;
+                        optionSelect.appendChild(opt);
+                    });
                 }
-                museumOptions.forEach(option => {
-                    const opt = document.createElement('option');
-                    opt.value = option;
-                    opt.innerHTML = option;
-                    optionSelect.appendChild(opt);
-                });
-            } else if (selectedType === 'event') {
-                // Event options
-                const eventOptions = ['Classics Revisited', 'Mythology Nights', 'Ancient Coin Exhibition','Alexandria Through Ages','Maritime Heritage','Ptolemaic Dynasty','Royal Jewels','Craftsmanship Workshop','Dynastic Fashion'];
-                eventOptions.forEach(option => {
-                    const opt = document.createElement('option');
-                    opt.value = option;
-                    opt.innerHTML = option;
-                    optionSelect.appendChild(opt);
-                });
             }
-        }
 
-        // Initial options update
-        updateOptions();
+            // Initial options update
+            updateOptions();
 
-        // Event listeners for type selection and city selection change
-        document.querySelectorAll('input[name="typeSelect"]').forEach(radio => {
-            radio.addEventListener('change', updateOptions);
+            // Event listeners for type selection and city selection change
+            document.querySelectorAll('input[name="typeSelect"]').forEach(radio => {
+                radio.addEventListener('change', updateOptions);
+            });
+            document.getElementById('citySelect').addEventListener('change', updateOptions);
         });
-        document.getElementById('citySelect').addEventListener('change', updateOptions);
-    });
-</script>
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            async function fetchUserData() {
+                try {
+                    // Fetch the token from localStorage
+                    const token = localStorage.getItem('token');
+                    if (!token) {
+                        console.error('Token not found in localStorage.');
+                        return null;
+                    }
+
+                    // Decode the token to get user data (assuming the token is a JWT)
+                    const decodedToken = decodeToken(token);
+                    if (!decodedToken) {
+                        console.error('Failed to decode token.');
+                        return null;
+                    }
+
+                    // Extract the username from the decoded token
+                    const username = decodedToken.username;
+                    if (!username) {
+                        console.error('Username not found in token.');
+                        return null;
+                    }
+
+                    // Return the username
+                    return { username };
+
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
+                    return null;
+                }
+            }
+
+
+            function decodeToken(token) {
+                try {
+                    const payload = token.split('.')[1];
+                    const decodedPayload = atob(payload);
+                    return JSON.parse(decodedPayload);
+                } catch (error) {
+                    console.error('Error decoding token:', error);
+                    return null;
+                }
+            }
+
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const userData = await fetchUserData();
+                const apiUrl = 'http://localhost:5000/ticketBooking/addTicket';
+                if (userData) {
+                    const { username } = userData;
+                    console.log(username);
+
+                    const museumRadio = document.getElementById('museumRadio');
+                    const eventRadio = document.getElementById('eventRadio');
+                    const selectedOption = document.getElementById('optionSelect').value;
+                    const numberOfTickets = document.getElementById('numTickets').value;
+
+                    const formData = new FormData();
+                    formData.append('username', username);
+                    formData.append('tableName', museumRadio.checked ? 'museum' : 'event');
+                    formData.append('selectedOption', selectedOption);
+                    formData.append('numberOfTickets', numberOfTickets);
+                    // Iterate over formData entries and log each key-value pair
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+                    // Set up the options for the fetch request
+                    const requestOptions = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json', // Indicate that the request body format is JSON
+                        },
+                        body: JSON.stringify(formData)
+                    };
+                    fetch(apiUrl, requestOptions)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json(); // Parse JSON response body
+                        })
+                        .then(result => {
+                            console.log('ticket added:', result);
+                            alert('Ticket bought!');
+                        })
+                        .catch(error => {
+                            console.error('Error during ticket:', error);
+                            alert('ticket buying failed! Please try again.'); // Notify user of failed ticket purchase
+                        });
+
+                } else {
+                    console.error('Failed to fetch username.');
+                }
+            }
+
+            document.getElementById('bookingForm').addEventListener('submit', handleSubmit);
+        });
+    </script>
 
 </body>
 
