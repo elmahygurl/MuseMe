@@ -28,7 +28,7 @@ class Museum {
             const [museums] = await db.query('SELECT * FROM museum'); 
             return museums;
         } catch (error) {
-            console.error('Error in Museum.findAll:', error);
+            console.error('Error in Museum.getAllMuseums:', error);
             throw new Error(`Error retrieving museums: ${error.message}`);
         }
     }

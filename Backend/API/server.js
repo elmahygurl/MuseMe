@@ -1,10 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const multer = require('multer');
-const path = require('path');
-const session = require('express-session');
+  const express = require('express');
+  const cors = require('cors');
+  const multer = require('multer');
+  const path = require('path');
+  const session = require('express-session');
 
-const app = express();
+  const app = express();
 
 // Body parser
 app.use(express.urlencoded({ extended: false }));
@@ -104,3 +104,4 @@ app.use('/users', UserRouter);
 app.use('/events', EventRouter);
 app.use('/museumtickets', MuseumTicketRouter);
 app.use('/eventtickets', EventTicketRouter);
+module.exports = app; 

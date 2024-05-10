@@ -2,13 +2,11 @@ const Event = require('../models/Event');
 
 exports.getAllEvents = async (req, res) => {
   try {
-    //console.log('in controller start');
     const events = await Event.getAllEvents();
     res.json(events);
-    //console.log('controller end');
   } catch (error) {
     console.error('Error in controller.getAllEvents:', error);
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ error: error.message }); // Update to match the test expectation
   }
 };
 
