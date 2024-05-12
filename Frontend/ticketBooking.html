@@ -40,9 +40,7 @@
                         <a class="text-primary px-3" href="#footer-section">
                             Get our Newsletter
                         </a>
-                        <a class="text-primary px-3" href="index.html">
-                            Log out
-                        </a>
+                        <a id="logoutLink" class="text-primary px-3" href="#">Log out</a>
                     </div>
                 </div>
             </div>
@@ -440,7 +438,21 @@
             document.getElementById('bookingForm').addEventListener('submit', handleSubmit);
         });
     </script>
-
+    <script>
+        // Function to handle user logout
+        function logoutUser() {
+            // Remove the token from localStorage
+            localStorage.removeItem('token');
+            alert('Logged out successfully!'); // Notify user of successful logout
+        }
+    
+        // Example of using logoutUser function
+        document.getElementById('logoutLink').addEventListener('click', function (event) {
+            logoutUser(); // Call the logoutUser function when the logout button is clicked
+            // You can also redirect the user to the login page after logout if needed
+            window.location.href = "index.html";
+        });
+    </script>
 </body>
 
 </html>
