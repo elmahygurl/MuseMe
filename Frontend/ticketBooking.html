@@ -165,13 +165,13 @@
                 <a href="" class="navbar-brand">
                     <h1 class="text-primary"><span class="text-white">MUSE</span>ME</h1>
                 </a>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Buy us a coffee☕</h6>
                 <div class="w-100">
                     <div class="input-group">
                         <input type="text" class="form-control border-light" style="padding: 20px;"
-                            placeholder="Your Email">
+                            placeholder="Say something nice..">
                         <div class="input-group-append">
-                            <button class="btn btn-primary px-3">Sign Up</button>
+                            <button id="supportButton" class="btn btn-primary px-3">Support $5</button>
                         </div>
                     </div>
                 </div>
@@ -451,6 +451,14 @@
             logoutUser(); // Call the logoutUser function when the logout button is clicked
             // You can also redirect the user to the login page after logout if needed
             window.location.href = "index.html";
+        });
+    </script>
+    <script>
+        // Function to handle support button click
+        document.getElementById('supportButton').addEventListener('click', function () {
+            // Display a thank you alert
+            alert('Thank you for your support! ☕');
+            window.location="index.html";
         });
     </script>
 </body>
