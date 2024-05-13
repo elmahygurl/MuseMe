@@ -9,10 +9,9 @@
     <meta content="Free HTML Templates" name="description">
 
 
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,8 +22,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <script src="js/museum.js"></script>
 
-    <script src="js/events.js"></script>
 </head>
 
 <body>
@@ -35,21 +35,19 @@
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        <!-- Add sign-in-button class to the Sign In link -->
-                        <a href="signin.html" class="text-primary px-3 sign-in-button">Sign In</a>
-                        <!-- Add log-out-button class to the Log Out link -->
-                        <a href="#" class="text-primary px-3 log-out-button" style="display: none;">Log Out</a>
+                        <a id="logoutLink" class="text-primary px-3" href="#">Log out</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Topbar End -->
+
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
@@ -66,63 +64,33 @@
                         <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="ArtGallery.html" class="nav-item nav-link">Art Gallery</a>
                         <a href="museums.html" class="nav-item nav-link">Museums</a>
-                        <a href="events.html" class="nav-item nav-link active">Events</a>
+                        <a href="events.html" class="nav-item nav-link">Events</a>
                         <a href="careers.html" class="nav-item nav-link">Careers</a>
                         <a href="contact.html" class="nav-item nav-link">Contact us</a>
-                        <!-- Add the "My Tickets" link with a class and style display: none; by default -->
-                        <a href="mytickets.html" class="nav-item nav-link my-tickets-link" style="display: none; ">My
-                            Tickets</a>
+                        <a href="mytickets.html" class="nav-item nav-link active">My Tickets</a>
+
                     </div>
-                    <a href="signup.html" class="btn btn-primary py-md-3 px-md-5 mt-2 sign-up-button">Sign Up</a>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
 
-
     <!-- Header Start -->
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Events</h3>
+                <h3 class="display-4 text-white text-uppercase">My tickets</h3>
+
             </div>
         </div>
     </div>
     <!-- Header End -->
 
-<!-- Events Start -->
-<div class="container mt-5" id="eventContainer">
-    <div class="row" id="eventList">
-        <!-- Begin Loop -->
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                <!-- Event photo (if available) -->
-                <!-- <img src="event.photo" class="card-img-top" alt="Event Photo"> -->
-                <div class="card-body">
-                    <!-- Event name -->
-                    <h5 class="card-title">event.name</h5>
-                    <!-- Event description -->
-                    <p class="card-text">event.description</p>
-                    <!-- Event start date and time -->
-                    <p class="card-text"><strong>From:</strong> event.startDateTime</p>
-                    <!-- Event end date and time -->
-                    <p class="card-text"><strong>To:</strong> event.endDateTime</p>
-                    <!-- Ticket price -->
-                    <p class="card-text"><strong>Ticket Price:</strong> event.ticketPrice</p>
-                    <!-- Buy ticket button -->
-                    <a href="signin.html" class="btn btn-primary">Buy Ticket Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- End Loop -->
-    </div>
-</div>
-<!-- Events End -->
-
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;" id="footer-section">
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
+        id="footer-section">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
@@ -139,9 +107,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote of the Day Section -->
-            <div  class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
+            <div class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
                 <div class="container text-center">
                     <h2 class="text-center mb-4" style="color: white;">Ancient quote of the Day</h2>
                     <div id="quote"></div>
@@ -151,7 +119,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                
+
             </div>
         </div>
     </div>
@@ -164,12 +132,15 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -188,77 +159,40 @@
             "“Do not assess a man who has nothing, and thus falsify your pen”",
             "“True knowledge comes from the upward path which leads to the eternal fire; error, defeat and death result from following the lower path of worldly attachment”",
         ];
-    
+
         // Function to display a random quote
         function displayRandomQuote() {
             var randomIndex = Math.floor(Math.random() * quotes.length);
             document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
         }
-    
+
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
-    <script>
+<script>
+    // Function to handle support button click
+    document.getElementById('supportButton').addEventListener('click', function () {
+        // Display a thank you alert
+        alert('Thank you for your support! ☕');
+        window.location="mytickets.html";
+    });
+</script>
+<script>
+    // Function to handle user logout
+    function logoutUser() {
+        // Remove the token from localStorage
+        localStorage.removeItem('token');
+        alert('Logged out successfully!'); // Notify user of successful logout
+    }
 
-        // Function to handle user logout
-        function logoutUser() {
-            // Remove the token from localStorage
-            localStorage.removeItem('token');
-            alert('Logged out successfully!'); // Notify user of successful logout
-            console.log('User logged out'); // Log a message to the console
-            toggleLinks();
-            // Redirect the user to the login page after logout
-            //window.location.href = "index.html";
-        }
-        // Function to show/hide Sign In, Sign Up, and Log Out links
-        function toggleLinks() {
-            // Check if token exists in local storage
-            const token = localStorage.getItem('token');
-            const signInLink = document.querySelector('.sign-in-button');
-            const signUpLink = document.querySelector('.sign-up-button');
-            const logOutLink = document.querySelector('.log-out-button');
-            const myTicketsLink = document.querySelector('.my-tickets-link');
+    // Example of using logoutUser function
+    document.getElementById('logoutLink').addEventListener('click', function (event) {
+        logoutUser(); // Call the logoutUser function when the logout button is clicked
+        // You can also redirect the user to the login page after logout if needed
+        window.location.href = "index.html";
+    });
+</script>
 
-            // If token exists, show Log Out link and hide Sign In and Sign Up links; otherwise, show Sign In and Sign Up links and hide Log Out link
-            if (token) {
-                signInLink.style.display = 'none';
-                signUpLink.style.display = 'none';
-                logOutLink.style.display = 'inline';
-                myTicketsLink.style.display = 'inline';
-            } else {
-                signInLink.style.display = 'inline';
-                signUpLink.style.display = 'inline';
-                logOutLink.style.display = 'none';
-                myTicketsLink.style.display = 'none';
-
-            }
-        }
-
-        // Function to display a random quote
-        function displayRandomQuote() {
-            // Array of Ancient Egyptian Proverbs Quotes
-            var quotes = [
-                "“When the heart is strong, the tongue speaks true”",
-                "“A good word is more effective than a sweet which one gives with reluctance”"
-            ];
-            var randomIndex = Math.floor(Math.random() * quotes.length);
-            document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
-        }
-
-        // Combine all the functions into a single window.onload function
-        window.onload = function () {
-            toggleLinks();
-            displayRandomQuote();
-
-            // Add event listeners to the log-out-button and supportButton
-            document.querySelector('.log-out-button').addEventListener('click', logoutUser);
-            document.getElementById('supportButton').addEventListener('click', function () {
-                alert('Thank you for your support! ☕');
-                window.location = "events.html";
-            });
-
-        };
-    </script>
 </body>
 
 </html>

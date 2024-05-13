@@ -37,10 +37,10 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-                        
-                        <a class="text-primary px-3" href="signin.html">
-                            Sign In
-                        </a>     
+                        <!-- Add sign-in-button class to the Sign In link -->
+                        <a href="signin.html" class="text-primary px-3 sign-in-button">Sign In</a>
+                        <!-- Add log-out-button class to the Log Out link -->
+                        <a href="#" class="text-primary px-3 log-out-button" style="display: none;">Log Out</a>
                     </div>
                 </div>
             </div>
@@ -66,9 +66,11 @@
                         <a href="events.html" class="nav-item nav-link">Events</a>
                         <a href="careers.html" class="nav-item nav-link">Careers</a>
                         <a href="contact.html" class="nav-item nav-link active">Contact us</a>
-                        
+                        <!-- Add the "My Tickets" link with a class and style display: none; by default -->
+                        <a href="mytickets.html" class="nav-item nav-link my-tickets-link" style="display: none; ">My
+                            Tickets</a>
                     </div>
-                    <a href="signup.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Sign Up</a>
+                   <a href="signup.html" class="btn btn-primary py-md-3 px-md-5 mt-2 sign-up-button">Sign Up</a>
                 </div>
             </nav>
         </div>
@@ -211,12 +213,65 @@
         window.onload = displayRandomQuote;
     </script>
     <script>
-        // Function to handle support button click
-        document.getElementById('supportButton').addEventListener('click', function () {
-            // Display a thank you alert
-            alert('Thank you for your support! ☕');
-            window.location="index.html";
-        });
+
+        // Function to handle user logout
+        function logoutUser() {
+            // Remove the token from localStorage
+            localStorage.removeItem('token');
+            alert('Logged out successfully!'); // Notify user of successful logout
+            console.log('User logged out'); // Log a message to the console
+            toggleLinks();
+            // Redirect the user to the login page after logout
+            //window.location.href = "index.html";
+        }
+        // Function to show/hide Sign In, Sign Up, and Log Out links
+        function toggleLinks() {
+            // Check if token exists in local storage
+            const token = localStorage.getItem('token');
+            const signInLink = document.querySelector('.sign-in-button');
+            const signUpLink = document.querySelector('.sign-up-button');
+            const logOutLink = document.querySelector('.log-out-button');
+            const myTicketsLink = document.querySelector('.my-tickets-link');
+
+            // If token exists, show Log Out link and hide Sign In and Sign Up links; otherwise, show Sign In and Sign Up links and hide Log Out link
+            if (token) {
+                signInLink.style.display = 'none';
+                signUpLink.style.display = 'none';
+                logOutLink.style.display = 'inline';
+                myTicketsLink.style.display = 'inline';
+            } else {
+                signInLink.style.display = 'inline';
+                signUpLink.style.display = 'inline';
+                logOutLink.style.display = 'none';
+                myTicketsLink.style.display = 'none';
+
+            }
+        }
+
+        // Function to display a random quote
+        function displayRandomQuote() {
+            // Array of Ancient Egyptian Proverbs Quotes
+            var quotes = [
+                "“When the heart is strong, the tongue speaks true”",
+                "“A good word is more effective than a sweet which one gives with reluctance”"
+            ];
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
+        }
+
+        // Combine all the functions into a single window.onload function
+        window.onload = function () {
+            toggleLinks();
+            displayRandomQuote();
+
+            // Add event listeners to the log-out-button and supportButton
+            document.querySelector('.log-out-button').addEventListener('click', logoutUser);
+            document.getElementById('supportButton').addEventListener('click', function () {
+                alert('Thank you for your support! ☕');
+                window.location = "contact.html";
+            });
+
+        };
     </script>
 </body>
 
