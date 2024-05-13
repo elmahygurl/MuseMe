@@ -1,31 +1,31 @@
 const ticket = require('../models/ticket');
 
-exports.getAllMuseumTickets = async (req, res) => {
+exports.getMuseumTicketsByUsername = async (req, res) => {
   try {
-    const museumTickets = await ticket.findAll();
+    const username = req.params.username;
+    const museumTickets = await ticket.getMuseumTicketsByUsername(username);
     res.json(museumTickets);
   } catch (error) {
+
     res.status(500).json({ message: error.message });
   }
 };
 
-exports.getMuseumTicketByAttributes = async (req, res) => {
-  const attributes = req.body; // Assuming attributes are passed in the request body
+exports.getEventTicketsByUsername = async (req, res) => {
   try {
-    const museumTicket = await ticket.findByAttributes(attributes);
-    if (museumTicket) {
-      res.json(museumTicket);
-    } else {
-      res.status(404).json({ message: 'Museum ticket not found' });
-    }
+    const username = req.params.username;
+    const ticketssM = await ticket.getEventTicketsByUsername(username);
+    res.json(ticketssM);
   } catch (error) {
+
     res.status(500).json({ message: error.message });
   }
+  
 };
 
 
 exports.createTicket = async (req, res) => {
-  console.log("controller start");
+  console.log("ticket controller start");
   const TicketData = req.body;
   const username = TicketData.username;
   const tableName = TicketData.tableName;
@@ -67,3 +67,15 @@ exports.deleteMuseumTicket = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+
+
+
+// exports.getAllEventsTickets = async (req, res) => {
+//   try {
+//     const ticketssE = await tickets.getAllEventsTickets();
+//     res.status(200).json(ticketssE);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
