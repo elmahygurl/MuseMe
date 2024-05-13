@@ -22,8 +22,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
-    <script src="js/museum.js"></script>
+
+    <script src="js/mytickets.js"></script>
 
 </head>
 
@@ -87,6 +87,21 @@
     </div>
     <!-- Header End -->
 
+    <!-- Bought Museum Tickets Section -->
+<section id="boughtMuseumTickets" class="container mt-5">
+    <h2 class="text-center mb-4">Bought Museum Tickets</h2>
+    <div class="row" id="museumTicketList">
+        <!-- Museum tickets will be dynamically added here -->
+    </div>
+</section>
+
+<!-- Bought Events Tickets Section -->
+<section id="boughtEventsTickets" class="container mt-5">
+    <h2 class="text-center mb-4">Bought Events Tickets</h2>
+    <div class="row" id="eventsTicketList">
+        <!-- Events tickets will be dynamically added here -->
+    </div>
+</section>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
@@ -139,7 +154,7 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Contact Javascript File -->
@@ -169,29 +184,29 @@
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
-<script>
-    // Function to handle support button click
-    document.getElementById('supportButton').addEventListener('click', function () {
-        // Display a thank you alert
-        alert('Thank you for your support! ☕');
-        window.location="mytickets.html";
-    });
-</script>
-<script>
-    // Function to handle user logout
-    function logoutUser() {
-        // Remove the token from localStorage
-        localStorage.removeItem('token');
-        alert('Logged out successfully!'); // Notify user of successful logout
-    }
+    <script>
+        // Function to handle support button click
+        document.getElementById('supportButton').addEventListener('click', function () {
+            // Display a thank you alert
+            alert('Thank you for your support! ☕');
+            window.location = "mytickets.html";
+        });
+    </script>
+    <script>
+        // Function to handle user logout
+        function logoutUser() {
+            // Remove the token from localStorage
+            localStorage.removeItem('token');
+            alert('Logged out successfully!'); // Notify user of successful logout
+        }
 
-    // Example of using logoutUser function
-    document.getElementById('logoutLink').addEventListener('click', function (event) {
-        logoutUser(); // Call the logoutUser function when the logout button is clicked
-        // You can also redirect the user to the login page after logout if needed
-        window.location.href = "index.html";
-    });
-</script>
+        // Example of using logoutUser function
+        document.getElementById('logoutLink').addEventListener('click', function (event) {
+            logoutUser(); // Call the logoutUser function when the logout button is clicked
+            // You can also redirect the user to the login page after logout if needed
+            window.location.href = "index.html";
+        });
+    </script>
 
 </body>
 

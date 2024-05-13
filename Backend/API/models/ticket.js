@@ -61,5 +61,80 @@ class ticket{
 
 }
 
+// static async getAllMuseumtickets() {
+//     try {
+//         const query = `
+//             SELECT mtp.ticketID, u.username, m.name AS museumName, mtp.purchaseDate 
+//             FROM museumticketpurchase AS mtp
+//             JOIN User AS u ON mtp.userID = u.userID
+//             JOIN museum AS m ON mtp.museumID = m.museumID
+//         `;
+//         const [results] = await db.query(query);
+//         return results;
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+static async getAllMuseumTickets() {
+    try {
+        const query = `
+            SELECT 
+                mtp.ticketID, 
+                u.username, 
+                m.name AS museumName, 
+                mtp.purchaseDate 
+            FROM 
+                museumticketpurchase AS mtp
+            JOIN 
+                User AS u ON mtp.userID = u.userID
+            JOIN 
+                museum AS m ON mtp.museumID = m.museumID;
+        `;
+        const [results] = await db.query(query);
+        return results;
+    } catch (error) {
+        throw error;
+    }
 }
+// static async getAllEventsTickets() {
+//     try {
+//         const query = `
+//             SELECT etp.ticketID, u.username, e.name AS eventName, etp.purchaseDate 
+//             FROM eventticketpurchase AS etp
+//             JOIN User AS u ON etp.userID = u.userID
+//             JOIN event AS e ON etp.eventID = e.eventID
+//         `;
+//         const [results] = await db.query(query);
+//         return results;
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+
+// }
+static async getAllEventsTickets() {
+    try {
+        const query = `
+            SELECT 
+                etp.ticketID, 
+                u.username, 
+                e.name AS eventName, 
+                etp.purchaseDate,
+                e.startingDate,
+                e.endingDate
+            FROM 
+                eventticketpurchase AS etp
+            JOIN 
+                User AS u ON etp.userID = u.userID
+            JOIN 
+                event AS e ON etp.eventID = e.eventID;
+        `;
+        const [results] = await db.query(query);
+        return results;
+    } catch (error) {
+        throw error;
+    }
+}
+}
+
 module.exports = ticket;
