@@ -42,5 +42,4 @@ describe('Museum Controller', () => {
     expect(res.json).toHaveBeenCalledWith({ error: errorMessage });
   });
 
-  // Add more test cases as needed
 });

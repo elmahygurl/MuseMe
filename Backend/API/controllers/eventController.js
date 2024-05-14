@@ -1,14 +1,16 @@
 const Event = require('../models/Event');
 
+
 exports.getAllEvents = async (req, res) => {
   try {
     const events = await Event.getAllEvents();
     res.json(events);
   } catch (error) {
     console.error('Error in controller.getAllEvents:', error);
-    res.status(500).json({ error: error.message }); // Update to match the test expectation
+    res.status(500).json({ error: 'Database error' });
   }
 };
+
 
 exports.getEventByAttributes = async (req, res) => {
   const attributes = req.body; // Assuming attributes are passed in the request body

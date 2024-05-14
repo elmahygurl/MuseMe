@@ -108,3 +108,5 @@ app.use('/museums', MuseumRouter);
 app.use('/users', UserRouter);
 app.use('/events', EventRouter);
 app.use('/ticket', TicketsRouter);
+
+module.exports = app; // Export the app object
