@@ -38,7 +38,7 @@ function renderMuseums(museums) {
                     <p class="card-text">${museum.description}</p>
                     <p class="card-text"><strong>Opening Hours:</strong> ${museum.openingHours}</p>
                     <p class="card-text"><strong>Ticket Price:</strong> ${museum.ticketPrice} EGP</p>
-                    <a href="signin.html" class="btn btn-primary">Buy Ticket Now</a>
+                    <a class="btn btn-primary" onclick="redirectToBooking()">Buy Ticket Now</a>
                 </div>
             </div>
         `;

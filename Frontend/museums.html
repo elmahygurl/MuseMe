@@ -22,7 +22,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
+
     <script src="js/museum.js"></script>
 
 </head>
@@ -45,10 +45,10 @@
                         <!-- Add log-out-button class to the Log Out link -->
                         <a href="#" class="text-primary px-3 log-out-button" style="display: none;">Log Out</a>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- Topbar End -->
 
@@ -117,13 +117,13 @@
                         <!-- Museum ticket price -->
                         <p class="card-text"><strong>Ticket Price:</strong> museum.ticketPrice </p>
                         <!-- Buy ticket button -->
-                        <a href="signin.html"  class="btn btn-primary">Buy Ticket Now</a>
+                        <a class="btn btn-primary" onclick="redirectToBooking()">Buy Ticket Now</a>
                     </div>
                 </div>
             </div>
             <!-- End Loop -->
         </div>
-       
+
     </div>
     <!-- Museums End -->
 
@@ -178,7 +178,7 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 
     <!-- Contact Javascript File -->
@@ -208,67 +208,79 @@
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
-<script>
+    <script>
 
-    // Function to handle user logout
-    function logoutUser() {
-        // Remove the token from localStorage
-        localStorage.removeItem('token');
-        alert('Logged out successfully!'); // Notify user of successful logout
-        console.log('User logged out'); // Log a message to the console
-        toggleLinks();
-        // Redirect the user to the login page after logout
-        //window.location.href = "index.html";
-    }
-    // Function to show/hide Sign In, Sign Up, and Log Out links
-    function toggleLinks() {
-        // Check if token exists in local storage
-        const token = localStorage.getItem('token');
-        const signInLink = document.querySelector('.sign-in-button');
-        const signUpLink = document.querySelector('.sign-up-button');
-        const logOutLink = document.querySelector('.log-out-button');
-        const myTicketsLink = document.querySelector('.my-tickets-link');
-
-        // If token exists, show Log Out link and hide Sign In and Sign Up links; otherwise, show Sign In and Sign Up links and hide Log Out link
-        if (token) {
-            signInLink.style.display = 'none';
-            signUpLink.style.display = 'none';
-            logOutLink.style.display = 'inline';
-            myTicketsLink.style.display = 'inline';
-        } else {
-            signInLink.style.display = 'inline';
-            signUpLink.style.display = 'inline';
-            logOutLink.style.display = 'none';
-            myTicketsLink.style.display = 'none';
-
+        // Function to handle user logout
+        function logoutUser() {
+            // Remove the token from localStorage
+            localStorage.removeItem('token');
+            alert('Logged out successfully!'); // Notify user of successful logout
+            console.log('User logged out'); // Log a message to the console
+            toggleLinks();
+            // Redirect the user to the login page after logout
+            //window.location.href = "index.html";
         }
-    }
+        // Function to show/hide Sign In, Sign Up, and Log Out links
+        function toggleLinks() {
+            // Check if token exists in local storage
+            const token = localStorage.getItem('token');
+            const signInLink = document.querySelector('.sign-in-button');
+            const signUpLink = document.querySelector('.sign-up-button');
+            const logOutLink = document.querySelector('.log-out-button');
+            const myTicketsLink = document.querySelector('.my-tickets-link');
 
-    // Function to display a random quote
-    function displayRandomQuote() {
-        // Array of Ancient Egyptian Proverbs Quotes
-        var quotes = [
-            "“When the heart is strong, the tongue speaks true”",
-            "“A good word is more effective than a sweet which one gives with reluctance”"
-        ];
-        var randomIndex = Math.floor(Math.random() * quotes.length);
-        document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
-    }
+            // If token exists, show Log Out link and hide Sign In and Sign Up links; otherwise, show Sign In and Sign Up links and hide Log Out link
+            if (token) {
+                signInLink.style.display = 'none';
+                signUpLink.style.display = 'none';
+                logOutLink.style.display = 'inline';
+                myTicketsLink.style.display = 'inline';
+            } else {
+                signInLink.style.display = 'inline';
+                signUpLink.style.display = 'inline';
+                logOutLink.style.display = 'none';
+                myTicketsLink.style.display = 'none';
 
-    // Combine all the functions into a single window.onload function
-    window.onload = function () {
-        toggleLinks();
-        displayRandomQuote();
+            }
+        }
 
-        // Add event listeners to the log-out-button and supportButton
-        document.querySelector('.log-out-button').addEventListener('click', logoutUser);
-        document.getElementById('supportButton').addEventListener('click', function () {
-            alert('Thank you for your support! ☕');
-            window.location = "museums.html";
-        });
+        // Function to display a random quote
+        function displayRandomQuote() {
+            // Array of Ancient Egyptian Proverbs Quotes
+            var quotes = [
+                "“When the heart is strong, the tongue speaks true”",
+                "“A good word is more effective than a sweet which one gives with reluctance”"
+            ];
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
+        }
 
-    };
-</script>
+        // Combine all the functions into a single window.onload function
+        window.onload = function () {
+            toggleLinks();
+            displayRandomQuote();
+
+            // Add event listeners to the log-out-button and supportButton
+            document.querySelector('.log-out-button').addEventListener('click', logoutUser);
+            document.getElementById('supportButton').addEventListener('click', function () {
+                alert('Thank you for your support! ☕');
+                window.location = "museums.html";
+            });
+
+        };
+        // Function to redirect based on token existence
+        function redirectToBooking() {
+            // Check if token exists in local storage
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Redirect to ticketsbooking.html if token exists
+                window.location.href = "ticketBooking.html";
+            } else {
+                // Redirect to signin.html if token does not exist
+                window.location.href = "signin.html";
+            }
+        }
+    </script>
 
 </body>
 
