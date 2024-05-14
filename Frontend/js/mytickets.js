@@ -49,7 +49,7 @@ function renderEventsTickets(eventsTickets) {
     ticketCard.innerHTML = `
           <div class="card">
               <div class="card-body">
-                  <h5 class="card-title">Ticket ID: ${ticket.id}</h5>
+                  <h5 class="card-title">Ticket ID: ${ticket.eventTicketId}</h5>
                   <p class="card-text"><strong>Event Name:</strong> ${ticket.eventName}</p>
                   <p class="card-text"><strong>Starting Date:</strong> ${ticket.startDateTime}</p>
                   <p class="card-text"><strong>Ending Date:</strong> ${ticket.endDateTime}</p>
