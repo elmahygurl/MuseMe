@@ -12,7 +12,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
                 <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
                         <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
@@ -91,38 +91,39 @@
     </div>
     <!-- Header End -->
 
-<!-- Events Start -->
-<div class="container mt-5" id="eventContainer">
-    <div class="row" id="eventList">
-        <!-- Begin Loop -->
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                <!-- Event photo (if available) -->
-                <!-- <img src="event.photo" class="card-img-top" alt="Event Photo"> -->
-                <div class="card-body">
-                    <!-- Event name -->
-                    <h5 class="card-title">event.name</h5>
-                    <!-- Event description -->
-                    <p class="card-text">event.description</p>
-                    <!-- Event start date and time -->
-                    <p class="card-text"><strong>From:</strong> event.startDateTime</p>
-                    <!-- Event end date and time -->
-                    <p class="card-text"><strong>To:</strong> event.endDateTime</p>
-                    <!-- Ticket price -->
-                    <p class="card-text"><strong>Ticket Price:</strong> event.ticketPrice</p>
-                    <!-- Buy ticket button -->
-                    <a href="signin.html" class="btn btn-primary">Buy Ticket Now</a>
+    <!-- Events Start -->
+    <div class="container mt-5" id="eventContainer">
+        <div class="row" id="eventList">
+            <!-- Begin Loop -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <!-- Event photo (if available) -->
+                    <!-- <img src="event.photo" class="card-img-top" alt="Event Photo"> -->
+                    <div class="card-body">
+                        <!-- Event name -->
+                        <h5 class="card-title">event.name</h5>
+                        <!-- Event description -->
+                        <p class="card-text">event.description</p>
+                        <!-- Event start date and time -->
+                        <p class="card-text"><strong>From:</strong> event.startDateTime</p>
+                        <!-- Event end date and time -->
+                        <p class="card-text"><strong>To:</strong> event.endDateTime</p>
+                        <!-- Ticket price -->
+                        <p class="card-text"><strong>Ticket Price:</strong> event.ticketPrice</p>
+                        <!-- Buy ticket button -->
+                        <a class="btn btn-primary">Buy Ticket Now</a>
+                    </div>
                 </div>
             </div>
+            <!-- End Loop -->
         </div>
-        <!-- End Loop -->
     </div>
-</div>
-<!-- Events End -->
+    <!-- Events End -->
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;" id="footer-section">
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;"
+        id="footer-section">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
@@ -139,9 +140,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quote of the Day Section -->
-            <div  class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
+            <div class="container-fluid bg-dark text-white py-5  col-md-6 mb-5">
                 <div class="container text-center">
                     <h2 class="text-center mb-4" style="color: white;">Ancient quote of the Day</h2>
                     <div id="quote"></div>
@@ -151,7 +152,7 @@
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>museme@outlook.com</p>
-                
+
             </div>
         </div>
     </div>
@@ -188,13 +189,13 @@
             "“Do not assess a man who has nothing, and thus falsify your pen”",
             "“True knowledge comes from the upward path which leads to the eternal fire; error, defeat and death result from following the lower path of worldly attachment”",
         ];
-    
+
         // Function to display a random quote
         function displayRandomQuote() {
             var randomIndex = Math.floor(Math.random() * quotes.length);
             document.getElementById('quote').innerHTML = "<p class='lead'>" + quotes[randomIndex] + "</p>";
         }
-    
+
         // Call the function to display a random quote when the page loads
         window.onload = displayRandomQuote;
     </script>
@@ -258,6 +259,18 @@
             });
 
         };
+        // Function to redirect based on token existence
+        function redirectToBooking() {
+            // Check if token exists in local storage
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Redirect to ticketsbooking.html if token exists
+                window.location.href = "ticketBooking.html";
+            } else {
+                // Redirect to signin.html if token does not exist
+                window.location.href = "signin.html";
+            }
+        }
     </script>
 </body>
 

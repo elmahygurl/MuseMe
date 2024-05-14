@@ -75,11 +75,11 @@ class ticket{
 //         throw error;
 //     }
 // }
-static async getAllMuseumTickets() {
+static async getMuseumTicketsByUsername(username) {
     try {
         const query = `
             SELECT 
-                mtp.ticketID, 
+                mtp.museumTicketId, 
                 u.username, 
                 m.name AS museumName, 
                 mtp.purchaseDate 
@@ -88,14 +88,17 @@ static async getAllMuseumTickets() {
             JOIN 
                 User AS u ON mtp.userID = u.userID
             JOIN 
-                museum AS m ON mtp.museumID = m.museumID;
+                museum AS m ON mtp.museumID = m.museumID
+            WHERE
+                u.username = ?;
         `;
-        const [results] = await db.query(query);
+        const [results] = await db.query(query, [username]);
         return results;
     } catch (error) {
         throw error;
     }
 }
+
 // static async getAllEventsTickets() {
 //     try {
 //         const query = `
@@ -112,24 +115,27 @@ static async getAllMuseumTickets() {
 // }
 
 // }
-static async getAllEventsTickets() {
+static async getEventTicketsByUsername(username) {
     try {
         const query = `
             SELECT 
-                etp.ticketID, 
+                etp.eventTicketId, 
                 u.username, 
                 e.name AS eventName, 
-                etp.purchaseDate,
-                e.startingDate,
-                e.endingDate
+                etp.purchaseDate ,
+                e.startDateTime as startDateTime,
+                e.endDateTime as endDateTime
+    
             FROM 
                 eventticketpurchase AS etp
             JOIN 
                 User AS u ON etp.userID = u.userID
             JOIN 
-                event AS e ON etp.eventID = e.eventID;
+                event AS e ON etp.eventID = e.eventID
+            WHERE
+                u.username = ?;
         `;
-        const [results] = await db.query(query);
+        const [results] = await db.query(query, [username]);
         return results;
     } catch (error) {
         throw error;
