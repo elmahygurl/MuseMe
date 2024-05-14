@@ -239,6 +239,7 @@
                     .then(result => {
                         console.log('User signed up:', result); // Log success message and result
                         alert('Signup successful!'); // Notify user of successful sign up
+                        window.location.href = "signin.html";
                     })
                     .catch(error => {
                         console.error('Error during signup:', error);
